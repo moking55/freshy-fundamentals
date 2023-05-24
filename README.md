@@ -1,35 +1,28 @@
-# fundamental
+# Freshy Fundamentals Project
+Freshy Fundamentals is a project designed to help newcomer students transition to college life. The project will provide students with resources and support to help them succeed in their academic and personal lives.
 
-This template should help get you started developing with Vue 3 in Vite.
+### Project Goals:
 
-## Recommended IDE Setup
+The goals of Freshy Fundamentals are to:
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+Help newcomer students adjust to college life
+Provide students with the resources they need to succeed academically
+Foster a sense of community among newcomer students
 
-## Customize configuration
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+###  Project Activities:
 
-## Project Setup
+The activities of Freshy Fundamentals will include:
 
-```sh
-npm install
-```
+- Orientation sessions
+- Mentorship programs
+- Social events
+- Academic support services
 
-### Compile and Hot-Reload for Development
+### Project Team:
 
-```sh
-npm run dev
-```
+The Freshy Fundamentals project team will consist of a project manager, a coordinator, and a group of student volunteers.
 
-### Compile and Minify for Production
+### Project Impact:
 
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+The Freshy Fundamentals project is expected to have a positive impact on newcomer students. The project will help students adjust to college life, provide them with the resources they need to succeed academically, and foster a sense of community among newcomer students.
