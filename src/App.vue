@@ -34,11 +34,6 @@ export default {
         value: "lab"
       },
       {
-        prependIcon: "mdi-checkbox-multiple-marked",
-        title: "แบบสอบถาม",
-        value: "survey"
-      },
-      {
         prependIcon: "mdi-alert",
         title: "แจ้งปัญหา",
         value: "reports"

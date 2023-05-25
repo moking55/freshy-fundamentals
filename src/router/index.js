@@ -4,6 +4,7 @@ import CoursesView from "../views/CoursesView.vue";
 import GameView from "../views/GameView.vue";
 import LabView from "../views/LabView.vue";
 import DocumentView from "../views/DocumentView.vue";
+import ReportView from "../views/ReportView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -29,6 +30,10 @@ const router = createRouter({
     {
       path: "/documents",
       component: DocumentView
+    },
+    {
+      path: "/reports",
+      component: ReportView
     },
     {
       path: "/game",
