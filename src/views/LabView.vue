@@ -68,6 +68,22 @@
       <v-card-text> ส่งงานสำเร็จแล้ว ขอแสดงความยินดี </v-card-text>
     </v-card>
   </v-dialog>
+  <v-dialog v-model="isFetch" :scrim="false" persistent width="auto">
+    <v-card color="primary">
+      <v-card-text>
+        Please stand by
+        <v-progress-linear indeterminate color="white" class="mb-0"></v-progress-linear>
+      </v-card-text>
+    </v-card>
+  </v-dialog>
+  <v-dialog v-model="isFailed" width="auto">
+    <v-card>
+      <v-card-text> มีปัญหาเกิดขึ้นระหว่างการดึงข้อมูลโปรดเรียก TA </v-card-text>
+      <v-card-actions>
+        <v-btn color="primary" block @click="isFailed = false">ปิด</v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
 </template>
 <script lang="ts">
 import { initializeApp } from "firebase/app";
@@ -153,6 +169,10 @@ export default {
         this.successDialog = true;
         this.submitted = true;
         this.assignment.link = "";
+        this.$confetti.start();
+        setTimeout(() => {
+          this.$confetti.stop();
+        }, 3000);
       });
     },
     convertTimestampToDateTime(timestamp) {

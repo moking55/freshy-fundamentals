@@ -17,6 +17,9 @@ import * as directives from "vuetify/directives";
 // Firebase
 import "./firebase.js";
 
+import VueConfetti from "vue-confetti";
+
+
 const vuetify = createVuetify({
   components,
   directives
@@ -26,5 +29,6 @@ const app = createApp(App);
 app.use(createPinia());
 app.use(router);
 app.use(vuetify);
+app.use(VueConfetti);
 
 app.mount("#app");
