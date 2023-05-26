@@ -3,6 +3,7 @@ import { RouterView } from "vue-router";
 import RailNavigation from "@/components/RailNavigation.vue";
 import { useDisplay } from "vuetify";
 import { ref } from "vue";
+import { useUserStore } from "@/stores/user.js";
 
 export default {
   components: {
@@ -12,6 +13,7 @@ export default {
   data: () => ({
     showExplanation: false,
     drawer: false,
+    changeUserDialogue: false,
     railItemList: [
       {
         prependIcon: "mdi-home",
@@ -48,7 +50,22 @@ export default {
   setup() {
     const { mobile } = useDisplay();
     const navDrawerIsOpen = ref(!mobile.value);
-    return { navDrawerIsOpen, mobile };
+    const userInfo = useUserStore();
+    return { navDrawerIsOpen, mobile, userInfo };
+  },
+  computed: {
+    isCourses() {
+      return this.$route.name === "courses";
+    }
+  },
+  methods: {
+    refresh() {
+      this.$router.go(0);
+    },
+    saveChange() {
+      this.changeUserDialogue = false;
+      this.userInfo.setUser(this.userInfo.username, this.userInfo.avatar);
+    }
   }
 };
 </script>
@@ -88,7 +105,7 @@ export default {
 
       <v-spacer></v-spacer>
 
-      <v-btn variant="text" icon="mdi-magnify"></v-btn>
+      <v-btn variant="text" v-if="isCourses" @click="refresh" icon="mdi-reload"></v-btn>
     </v-app-bar>
 
     <!-- <v-navigation-drawer v-model="drawer" location="left" temporary>
@@ -96,13 +113,38 @@ export default {
     </v-navigation-drawer> -->
 
     <v-navigation-drawer v-model="navDrawerIsOpen" expand-on-hover rail>
-      <v-list>
-        <v-list-item
-          prepend-avatar="https://randomuser.me/api/portraits/women/85.jpg"
-          title="Sandra Adams"
-          subtitle="sandra_a88@gmailcom"
-        ></v-list-item>
+      <v-list @click="changeUserDialogue = true">
+        <v-list-item :prepend-avatar="userInfo.avatar">
+          <v-list-item-title>{{ userInfo.username }}</v-list-item-title>
+          <v-list-item-subtitle>ผู้เข้าร่วม</v-list-item-subtitle>
+        </v-list-item>
       </v-list>
+      <v-dialog persistent v-model="changeUserDialogue" width="auto">
+        <v-card>
+          <v-card-item class="text-center">
+            <v-avatar size="100" class="mb-6" color="surface-variant">
+              <v-img :src="userInfo.avatar"></v-img>
+            </v-avatar>
+            <v-text-field
+              label="ลิ้งค์อวาต้า"
+              v-model="userInfo.avatar"
+              variant="underlined"
+              style="width: 300px"
+              density="compact"
+            ></v-text-field>
+            <v-text-field
+              label="ชื่อผู้อบรม"
+              v-model="userInfo.username"
+              variant="underlined"
+              style="width: 300px"
+              density="compact"
+            ></v-text-field>
+          </v-card-item>
+          <v-card-actions>
+            <v-btn color="primary" block @click="saveChange">บันทึก</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
       <v-divider></v-divider>
 
       <RailNavigation :data="railItemList" />

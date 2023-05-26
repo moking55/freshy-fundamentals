@@ -85,7 +85,7 @@
     </v-card>
   </v-dialog>
 </template>
-<script lang="ts">
+<script>
 import { initializeApp } from "firebase/app";
 import { useCollection } from "vuefire";
 import { getFirestore, addDoc, collection } from "firebase/firestore";
@@ -119,7 +119,7 @@ export default {
   data() {
     return {
       valid: false,
-      submitted: this.submitAssignment.isSubmitted("asds"),
+      submitted: false,
       successDialog: false,
       nameRules: [
         (value) => {
