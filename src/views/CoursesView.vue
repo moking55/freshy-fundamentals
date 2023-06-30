@@ -111,4 +111,20 @@ export default {
   }
 };
 </script>
-<style lang=""></style>
+<style scoped>
+>>> p {
+  margin-bottom: 1.5em;
+}
+
+>>> figcaption {
+  color: #888;
+  font-size: 10pt;
+  margin-bottom: 1em;
+
+}
+
+>>> img {
+  max-width: 100%;
+  object-fit: contain;
+}
+</style>

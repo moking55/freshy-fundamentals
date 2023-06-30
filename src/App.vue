@@ -51,6 +51,7 @@ export default {
     const { mobile } = useDisplay();
     const navDrawerIsOpen = ref(!mobile.value);
     const userInfo = useUserStore();
+    
     return { navDrawerIsOpen, mobile, userInfo };
   },
   computed: {
