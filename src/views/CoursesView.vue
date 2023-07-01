@@ -73,7 +73,7 @@ export default {
       .get(import.meta.env.VITE_APP_API_BASE + "/posts?categories=2&_embed=wp:term")
       .then((response) => {
         console.log(response.data);
-        coursesList.value = response.data;
+        coursesList.value = response.data.reverse();
       })
       .catch((error) => {
         isFailed.value = true;
